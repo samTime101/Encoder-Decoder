@@ -1,6 +1,6 @@
 # Encoder-Decoder
 A simple algorithm and working prototype of encoding a data in a binary table format and decoding it 
-suppose we wanna save a data eg: suppose a number called 'XYZ' in this table 
+suppose we want to save a data eg: suppose a number called 'XYZ' in this table 
 the algorithm will convert this data into binary into required minimum bits and convert it to the required grid size
 
 
