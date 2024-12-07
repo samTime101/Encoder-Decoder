@@ -22,7 +22,7 @@ navigator.mediaDevices
             // canvas.height = video.videoHeight;
             const aspectRatio = video.videoWidth / video.videoHeight;
 
-            const customWidth = 100;
+            const customWidth = 300;
             const customHeight = customWidth / aspectRatio;
 
             video.width = customWidth;
@@ -52,9 +52,11 @@ function drawGrid() {
         }
     }
 }
+var printdata = document.querySelector('p')
 
 function imageDataRetractor() {
     var data = [];
+    var binarydata = []
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
             //copying the pixels
@@ -91,6 +93,8 @@ function imageDataRetractor() {
                     cellWidth,
                     cellHeight
                 );
+                
+                // console.log(binarydata)
                 //all this text stuff direct copied from stackoverflow    
                 context.font = `${Math.min(cellWidth, cellHeight) * 0.6}px Arial`;
                 context.fillStyle = "white";
@@ -103,6 +107,7 @@ function imageDataRetractor() {
                     j * cellWidth + cellWidth / 2,
                     i * cellHeight + cellHeight / 2
                 );
+                binarydata.push(0)
             }
             else {
                 context.font = `${Math.min(cellWidth, cellHeight) * 0.6}px Arial`;
@@ -116,7 +121,12 @@ function imageDataRetractor() {
                     j * cellWidth + cellWidth / 2,
                     i * cellHeight + cellHeight / 2
                 );
+                binarydata.push(1)
             }
+            //converting binary to integer FOR NOW for testing purpose only
+           var binarystring = binarydata.join('')
+           var decimal = parseInt(binarystring,2)
+            printdata.textContent = `binary data: [${binarydata}] decimal: ${decimal}`
         }
     }
 }
